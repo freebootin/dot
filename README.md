@@ -5,3 +5,4 @@ your own risk.
 
 TODO's
 + Make setup scripts more verbose. 
++ Move package installation out of main setup script
