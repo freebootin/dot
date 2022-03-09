@@ -1,0 +1,25 @@
+#!/bin/sh
+# add no clobber
+
+if test -z "${1}"; then
+  echo "Usage: mkscript [scriptname]"
+  exit 1
+fi
+
+src="$SCRIPTS/$1"
+
+if test -e "$src"; then
+	printf "Script already exists.\n"
+	exit 1
+fi
+
+touch "${src}"
+
+if ! test -e "${src}"; then
+  printf "Could not create script file. Check privilages.\n"
+  exit 1
+fi
+
+printf "#!/bin/sh\n" > "${src}"
+chmod +x "${src}"
+exec vi "+normal G$" "${src}"

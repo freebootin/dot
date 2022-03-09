@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -d "$HOME/.newsboat" ]; then
+	mkdir "$HOME/.newsboat"
+fi
+
+ln -sf "$PWD/config" "$HOME/.newsboat/config"

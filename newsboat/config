@@ -1,0 +1,13 @@
+# unbind j, originally next-feed
+unbind-key j
+bind-key j down
+
+# unbind k, originally prev-feed 
+unbind-key k
+bind-key k up
+
+# test stuff
+browser $BROWSER
+macro o open-in-browser
+macro m set browser "mpv" ; open-in-browser ; set browser $BROWSER
+macro y set browser "mpv --ytdl-format=18" ; open-in-browser; set browser $BROWSER

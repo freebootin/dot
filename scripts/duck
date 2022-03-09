@@ -1,0 +1,4 @@
+#!/bin/sh
+set -x
+#exec lynx https://www.duckduckgo.com/?q="$*"
+exec w3m https://www.duckduckgo.com/?q="$*"

@@ -1,0 +1,17 @@
+#!/bin/sh
+touch ~/.status
+
+if [ ! -f ~/.status ]; then
+  echo "Could not create ~/.status. Exiting"
+  exit 1
+fi
+
+while [ -n yes ]; do
+  DATE=$(date +"%R %x")
+  CHARGING=$(cat /sys/class/power_supply/BAT0/status)
+  BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+  LINK_STATUS=$(cat /sys/class/net/enp0s25/operstate)
+
+  echo ${DATE} Bat: ${BATTERY}/100 > ~/.status
+  sleep 1
+done

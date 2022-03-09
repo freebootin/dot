@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -d "$HOME/.w3m" ]; then
+	mkdir "$HOME/.w3m"
+fi
+
+ln -sf "$PWD/config" "$HOME/.w3m/config"

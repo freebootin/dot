@@ -1,0 +1,93 @@
+#!/bin/sh
+
+set -e
+
+# make note of 'setup' directory
+SETUPDIR=$(pwd)
+
+# check that script is run with sudo
+if [ "$(whoami)" = root ]; then
+  echo "Please do not run using sudo."
+  exit 1
+fi
+
+set_shell() {
+  case $SHELL in
+    *bash)
+      echo "Shell is Bash"
+      ;;
+    *)
+      echo "Changing login shell to Bash..."
+      chsh -s /bin/bash
+      ;;
+  esac
+}
+
+create_directories() {
+  # you need the || true because the set -e option aborts the script if any
+  # command returns anything other than 0.
+  if [ ! -d "$HOME/.local/bin" ]; then
+    mkdir "$HOME/.local" || true
+    mkdir "$HOME/.local/bin" || true
+  fi
+}
+
+make_symbolic_links() {
+  ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+  ln -sf "$PWD/.profile" "$HOME/.profile"
+  ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+  ln -sf "$PWD/scripts" "$HOME/.local/bin/"
+}
+
+# update system and install packages
+install_packages() {
+  sudo apt update -y && apt install -y \
+#     build-essential \
+#     bison \
+#     libevent-dev \
+#     xorg \
+#     openbox \
+#     sxhkd \
+#     lemonbar \
+#     rofi \
+#     feh \
+#     podman \
+    vim \
+    w3m \
+    newsboat 
+}
+
+# move into each directory and execute the setup script inside
+run_config_scripts() {
+  for i in vim w3m newsboat; do
+    cd $i && ./setup
+    cd -
+  done
+}
+
+install_tmux() {
+  cd ..
+  git clone https://https://github.com/tmux/tmux
+  cd tmux
+  sudo sh autogen.sh
+  sudo .configure && make
+  cp tmux ~/.local/bin/tmux
+  cd "${SETUPDIR}"
+}
+
+install_st() {
+  cd ..
+  git clone https://github.com/patrickkanexyz/st.git
+  cd st
+  make clean install
+  cp st ~/.local/bin/st
+  cd "${SETUPDIR}"
+}
+
+set_shell
+create_directories
+make_symbolic_links
+#install_packages
+run_config_scripts
+#install_tmux
+#install_st

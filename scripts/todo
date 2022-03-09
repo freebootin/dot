@@ -1,0 +1,8 @@
+#!/bin/sh
+TODOFILE=$HOME/TODO
+
+if [ -e ${TODOFILE} ]; then
+  vi ${TODOFILE}
+else
+  touch ${TODOFILE}
+fi

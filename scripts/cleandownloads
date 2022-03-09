@@ -1,0 +1,67 @@
+#!/bin/sh
+# Clean up the Downloads directory, sorting everything into
+# directories by file type.
+
+# check existance of Downloads folder
+if [ ! -d $HOME/Downloads ]; then
+  echo "$HOME/Downloads directory does not exist. Exiting..."
+  exit 1
+fi
+
+# change working directory to Downloads
+cd $HOME/Downloads
+
+# check existance of folders, create them if not found
+if [ ! -d $HOME/Downloads/videos ]; then 
+  mkdir $HOME/Downloads/videos
+fi
+
+if [ ! -d $HOME/Downloads/images ]; then
+  mkdir $HOME/Downloads/images
+fi
+
+if [ ! -d $HOME/Downloads/docs ]; then
+  mkdir $HOME/Downloads/docs
+fi
+
+if [ ! -d $HOME/Downloads/archives ]; then
+  mkdir $HOME/Downloads/archives
+fi
+
+if [ ! -d $HOME/Downloads/data ]; then
+  mkdir $HOME/Downloads/data
+fi
+
+# move files into directories based on extension
+for file in *; do
+  case $file in
+    # video extensions
+    *.mkv| *.mp4| *.webm)
+      echo "Moving ${file} into /videos"
+      mv "${file}" videos
+      ;;
+    # image extensions
+    *.jpg| *.jpeg| *.png)
+      echo "Moving ${file} into /images"
+      mv "${file}" images
+      ;;
+    # doc extensions
+    *.pdf| *.epub)
+      echo "Moving ${file} into /docs"
+      mv "${file}" docs
+      ;;
+    # archive extensions
+    *.img| *.zip| *.iso| *.gz| *.tar)
+      echo "Moving ${file} into /archives"
+      mv "${file}" archives
+      ;;
+    # data extensions
+    *.xml| *.json| *.xlsx| *.csv)
+      echo "Moving ${file} into /data"
+      mv "${file}" data
+      ;;
+    *)
+      echo "Not moving ${file}"
+      ;;
+  esac
+done

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$(command -v vim)" ]; then
+	echo "Vim is not installed."
+	exit 1
+fi
+
+if [ ! -d "$HOME/.vim/autoload" ]; then
+	mkdir -p "$HOME/.vim/autoload"
+	mkdir -p "$HOME/.vim/tmp"
+fi
+ln -sf "$PWD/vimrc" "$HOME/.vim/vimrc"
+ln -sf "$PWD/plug.vim" "$HOME/.vim/autoload/plug.vim"
