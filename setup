@@ -41,7 +41,10 @@ make_symbolic_links() {
 
 # update system and install packages
 install_packages() {
-  sudo apt update -y && apt install -y \
+  #TODO move installing packages to package specific installers.
+
+  sudo apt update -y 
+  sudo apt install -y \
 #     build-essential \
 #     bison \
 #     libevent-dev \
