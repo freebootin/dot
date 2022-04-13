@@ -13,10 +13,12 @@ esac
 # ----------------------------------------------------------------------------- 
 # enviroment variables
 
-export GITUSER=$(whoami)
-export BROWSER="brave-browser"
+export BROWSER="firefox-esr"
 export DOT="$HOME/repos/patrickkanexyz/dot/"
 export EDITOR=vi
+export GITUSER=$(whoami)
+export GOPATH="$HOME/go"
+export HISTFILE="$HOME/.cache/bash_history"
 export JOURNAL="$HOME/.local/journal"
 export PROJECTS="$HOME/projects"
 export REPOS="$HOME/repos"
@@ -24,8 +26,6 @@ export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
 export VISUAL=vi
-#export PDF="$HOME/.local/pdf or something like this
-export GOPATH="$HOME/go"
 
 # ----------------------------------------------------------------------------- 
 # shell options
