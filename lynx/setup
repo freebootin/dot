@@ -1,0 +1,7 @@
+#!/bin/sh
+# Create lynx config directory and add config files.
+
+mkdir -p $HOME/.config/lynx
+
+ln -sf "$PWD/lynx.cfg" "$HOME/.config/lynx/lynx.cfg"
+ln -sf "$PWD/lnyx.lss" "$HOME/.config/lynx/lynx.lss"
