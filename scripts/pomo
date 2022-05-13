@@ -1,5 +1,22 @@
 #!/usr/bin/perl
-# Basic Pomodoro timer.
+use strict;
+use warnings;
+
+use Getopt::Std;
+our($opt_s, $opt_m, $opt_h);
+getopts('smh');
+
+if ($opt_s) {
+  print "opt_s is set\n";
+}
+
+if ($opt_m) {
+  print "opt_m is set\n";
+}
+
+if ($opt_h) {
+  print "opt_h is set\n";
+}
 
 my $COUNTDOWN_TIME = $ARGV[0];
 print "Counting down from ".$COUNTDOWN_TIME." seconds...\n";
