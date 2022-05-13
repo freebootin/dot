@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+# Basic Pomodoro timer.
+
+my $COUNTDOWN_TIME = $ARGV[0];
+print "Counting down from ".$COUNTDOWN_TIME." seconds...\n";
+
+while ($COUNTDOWN_TIME > 0) {
+  print $COUNTDOWN_TIME."\n";
+  $COUNTDOWN_TIME--;
+  sleep(1);
+}
+
+print "Finished counting down from $ARGV[0]\n";
