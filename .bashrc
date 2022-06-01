@@ -14,7 +14,7 @@ esac
 # enviroment variables
 
 export BROWSER="firefox-esr"
-export DOT="$HOME/repos/patrickkanexyz/dot/"
+export DOT="$HOME/repos/github/freebootin/dot/"
 export EDITOR=vi
 export GITUSER=$(whoami)
 export GOPATH="$HOME/go"
