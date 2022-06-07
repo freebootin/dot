@@ -105,6 +105,7 @@ alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
 alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
+alias lynx="lynx -cfg=$HOME/.config/lynx/lynx.cfg -lss=$HOME/.config/lynx/lynx.lss"
 
 # ----------------------------------------------------------------------------- 
 # functions
