@@ -1,0 +1,15 @@
+#!/bin/sh
+# Generate an 80 column header from given input.
+
+TITLE="$@"
+
+LENGTH=$(( $(echo $TITLE | wc -c) / 2 ))
+LENGTH=$(( 40 - $LENGTH ))
+
+echo "--------------------------------------------------------------------------------"
+while [ "$LENGTH" -ge 0 ]; do
+  printf " " 
+  LENGTH=$((LENGTH - 1))
+done
+printf '%s\n' "$TITLE"
+echo "--------------------------------------------------------------------------------"
