@@ -77,12 +77,11 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F5> :set list! list?<CR>
 nnoremap <F6> :set relativenumber! relativenumber?<CR>
 
-"set colorcolumn=80
-" make this a function key
 " -----------------------------------------------------------------------------
 " Color Scheme
 " -----------------------------------------------------------------------------
 colorscheme desert
+"set colorcolumn=80
 "set background=dark "use colors that suit a dark background
 "highlight colorcolumn ctermbg=black ctermfg=red
 
@@ -95,6 +94,13 @@ set directory^=$HOME/.vim/tmp//
 " Set backup location
 " -----------------------------------------------------------------------------
 set backupdir^=$HOME/.vim/tmp//
+
+" ------------------------------------------------------------------------------
+"                                     Macros
+" ------------------------------------------------------------------------------
+" HTML macros
+let @p = "I<p>\<Esc>A</p>\<Esc>"
+let @h = "I<h2>\<Esc>A</h2>\<Esc>"
 
 " -----------------------------------------------------------------------------
 " Plugins
