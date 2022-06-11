@@ -1,0 +1,9 @@
+# TCSH RC File
+
+# Set path variable
+set path = ( /bin /usr/local/bin /usr/bin )
+
+# test if we are in an interactive shell
+if ($?prompt) then
+  # Set the prompt
+  set
