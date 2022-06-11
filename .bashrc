@@ -73,10 +73,10 @@ pathprepend \
 
 pathappend \
   /usr/local/bin \
-  /user/local/sbin \
-  /user/local/games \
-  /user/sbin \
-  /user/bin \
+  /usr/local/sbin \
+  /usr/local/games \
+  /usr/sbin \
+  /usr/bin \
   /sbin \
   /bin
 
