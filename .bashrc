@@ -27,11 +27,15 @@ export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
 export VISUAL=vi
 
+if [[ -n $(command -v lynx) ]]; then
+  export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
+  export LYNX_LSS="$HOME/.config/lynx/lynx.lss"
+fi
+
 # ----------------------------------------------------------------------------- 
 # shell options
 
 #shopt -s glopstar
-
 # ----------------------------------------------------------------------------- 
 # history
 
@@ -105,7 +109,7 @@ alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
 alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
-alias lynx="lynx -cfg=$HOME/.config/lynx/lynx.cfg -lss=$HOME/.config/lynx/lynx.lss"
+#alias lynx="lynx -cfg=$HOME/.config/lynx/lynx.cfg -lss=$HOME/.config/lynx/lynx.lss"
 
 # ----------------------------------------------------------------------------- 
 # functions
