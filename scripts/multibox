@@ -1,0 +1,21 @@
+#!/bin/sh
+# This is a multicall shell script. It is meant to be run from a symlink.
+# The function executed depends on the name of the symlink used to run
+# this script.
+
+CALL_NAME=$(basename $0)
+echo $HOSTNAME
+case ${CALL_NAME} in
+  test-c)
+    printf "\e[H\e[2J"
+    ;;
+  test-p)
+    echo "${USER} at ${HOSTNAME} in ${PWD}"
+    ;;
+  test-dgrep)
+    ls "${1}" | grep -i "${2}"
+    ;;
+  *)
+    echo "USAGE"
+    ;;
+esac
