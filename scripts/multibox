@@ -4,7 +4,6 @@
 # this script.
 
 CALL_NAME=$(basename $0)
-echo $HOSTNAME
 case ${CALL_NAME} in
   test-c)
     printf "\e[H\e[2J"
