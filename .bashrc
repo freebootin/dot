@@ -10,10 +10,11 @@ esac
 # this case statment is also how you read options
 
 
-# ----------------------------------------------------------------------------- 
-# enviroment variables
-
+# ------------------------------------------------------------------------------
+#                              Enviroment Variables
+# ------------------------------------------------------------------------------
 export BROWSER="firefox-esr"
+export CDPATH=".:$REPOS:$DOT:$GOPATH:$PROJECTS"
 export DOT="$HOME/repos/github/freebootin/dot/"
 export EDITOR=vi
 export GITUSER=$(whoami)
@@ -32,22 +33,16 @@ if [[ -n $(command -v lynx) ]]; then
   export LYNX_LSS="$HOME/.config/lynx/lynx.lss"
 fi
 
-# ----------------------------------------------------------------------------- 
-# shell options
-
-#shopt -s glopstar
-# ----------------------------------------------------------------------------- 
-# history
-
+# ------------------------------------------------------------------------------
+#                                 Shell Options
+# ------------------------------------------------------------------------------
 set -o vi
 shopt -s histappend
+#shopt -s glopstar
 
-# ----------------------------------------------------------------------------- 
-# path
-
-# some distros add .local/bin to $PATH in your .profile
-#export PATH="$HOME/.local/bin:$PATH"
-
+# ------------------------------------------------------------------------------
+#                                      Path
+# ------------------------------------------------------------------------------
 pathappend() {
 	for ARG in "$@"; do
 		test -d "${ARG}" || continue
@@ -84,20 +79,14 @@ pathappend \
   /sbin \
   /bin
 
-# ----------------------------------------------------------------------------- 
-# prompt
-
-# TODO work on function/script to give a PWD display like:
-# ~/s/e/d/bin  aka first letter of each parent directory
+# ------------------------------------------------------------------------------
+#                                     Prompt
+# ------------------------------------------------------------------------------
 export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 
-# ----------------------------------------------------------------------------- 
-# cdpath
-
-export CDPATH=".:$REPOS:$DOT:$GOPATH:$PROJECTS"
-# ----------------------------------------------------------------------------- 
-# aliases
-
+# ------------------------------------------------------------------------------
+#                                    Aliases
+# ------------------------------------------------------------------------------
 alias cdtmp="cd $(mktemp -d)"
 alias disk-destroyer='dd'
 alias dot='cd $DOT'
@@ -109,10 +98,10 @@ alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
 alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
-#alias lynx="lynx -cfg=$HOME/.config/lynx/lynx.cfg -lss=$HOME/.config/lynx/lynx.lss"
 
-# ----------------------------------------------------------------------------- 
-# functions
+# ------------------------------------------------------------------------------
+#                               Exported Functions
+# ------------------------------------------------------------------------------
 c() {
 	printf "\e[H\e[2J"
 } 
@@ -132,15 +121,16 @@ dgrep() {
   ls "${1}" | grep -i "${2}"
 }
 export dgrep
-# ----------------------------------------------------------------------------- 
-# dircolors
 
+# ------------------------------------------------------------------------------
+#                                Terminal Colors
+# ------------------------------------------------------------------------------
 eval $(dircolors -b) # dircolors sets the LS_COLORS variable
 alias ls='ls -h --color=auto'
 
-# ----------------------------------------------------------------------------- 
-# pager
-
+# ------------------------------------------------------------------------------
+#                                     Pager
+# ------------------------------------------------------------------------------
 if test -x /usr/bin/lesspipe; then
 	export LESSOPEN="| /usr/bin/lesspipe %s";
 	export LESSCLOSE="/usr/bin/lesspipe %s %s";
@@ -166,9 +156,9 @@ export LESS_TERMCAP_us="[4m" # underline
 #us      smul      start underline
 #ue      rmul      stop underline
 
-# ----------------------------------------------------------------------------- 
-# completion
-
+# ------------------------------------------------------------------------------
+#                                   Completion
+# ------------------------------------------------------------------------------
 # The owncomp array is a list of programs/scripts that contain their own
 # completions.  That array is then feed through a loop that calls complete -C
 # on each of those programs/scipts to initialize completion.
