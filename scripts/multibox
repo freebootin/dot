@@ -27,6 +27,12 @@ case ${CALL_NAME} in
     dgrep_func "$@"
     ;;
   *)
-    echo "USAGE"
+    echo "USAGE:"
+    echo "--------------------------------------------------------------------------------"
+    echo "  Call this script using symlinks. The name of the symlink is used to call the"
+    echo "  function in the script."
+    echo "  Command line arguments are passed through to the underlying functions."
+    echo "  If a symlink is not recognized then this usage message will be displayed."
+    echo "--------------------------------------------------------------------------------"
     ;;
 esac
