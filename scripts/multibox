@@ -3,16 +3,28 @@
 # The function executed depends on the name of the symlink used to run
 # this script.
 
+c_func() {
+  printf "\e[H\e[2J"
+}
+
+p_func() {
+  echo "${PWD}"
+}
+
+dgrep_func() {
+  ls "${1}" | grep -i "${2}"
+}
+
 CALL_NAME=$(basename $0)
 case ${CALL_NAME} in
   test-c)
-    printf "\e[H\e[2J"
+    c_func
     ;;
   test-p)
-    echo "${USER} at ${HOSTNAME} in ${PWD}"
+    p_func
     ;;
   test-dgrep)
-    ls "${1}" | grep -i "${2}"
+    dgrep_func "$@"
     ;;
   *)
     echo "USAGE"
