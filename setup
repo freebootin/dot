@@ -23,7 +23,7 @@ make_symbolic_links() {
 
 # move into each directory and execute the setup script inside
 run_config_scripts() {
-  for i in vim lynx newsboat; do
+  for i in vim w3m; do
     cd $i && ./setup
     cd -
   done
