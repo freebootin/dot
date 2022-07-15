@@ -98,6 +98,7 @@ alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
 alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
+alias trl="transmission-remote --list"
 
 # ------------------------------------------------------------------------------
 #                               Exported Functions
@@ -125,24 +126,32 @@ export dgrep
 # ------------------------------------------------------------------------------
 #                                Terminal Colors
 # ------------------------------------------------------------------------------
-eval $(dircolors -b) # dircolors sets the LS_COLORS variable
-alias ls='ls -h --color=auto'
+if [ $(uname) = 'FreeBSD' ]; then
+    eval $(dircolors -b ~/.dircolors) # dircolors sets the LS_COLORS variable
+    alias ls='ls -h --color' # on FreeBSD --color should not be =auto. Doesn't work.
+fi
 
+if [ $(uname) = 'Linux' ]; then
+    eval $(dircolors -b)
+    alias ls='ls -h --color=auto'
+fi
 # ------------------------------------------------------------------------------
 #                                     Pager
 # ------------------------------------------------------------------------------
-if test -x /usr/bin/lesspipe; then
-	export LESSOPEN="| /usr/bin/lesspipe %s";
-	export LESSCLOSE="/usr/bin/lesspipe %s %s";
-fi
+if [ $(uname) = 'Linux' ]; then
+    if test -x /usr/bin/lesspipe; then
+        export LESSOPEN="| /usr/bin/lesspipe %s";
+        export LESSCLOSE="/usr/bin/lesspipe %s %s";
+    fi
 
-export LESS_TERMCAP_mb="[35m" # magenta
-export LESS_TERMCAP_md="[33m" # yellow
-export LESS_TERMCAP_me="[0m" 
-export LESS_TERMCAP_se="[0m"
-export LESS_TERMCAP_so="[36m" # cyan
-export LESS_TERMCAP_ue="[0m"
-export LESS_TERMCAP_us="[4m" # underline
+    export LESS_TERMCAP_mb="[35m" # magenta
+    export LESS_TERMCAP_md="[33m" # yellow
+    export LESS_TERMCAP_me="[0m" 
+    export LESS_TERMCAP_se="[0m"
+    export LESS_TERMCAP_so="[36m" # cyan
+    export LESS_TERMCAP_ue="[0m"
+    export LESS_TERMCAP_us="[4m" # underline
+fi
 
 #termcap terminfo  
 #ks      smkx      make the keypad send commands
