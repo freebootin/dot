@@ -13,7 +13,7 @@ esac
 # ------------------------------------------------------------------------------
 #                              Enviroment Variables
 # ------------------------------------------------------------------------------
-export BROWSER="firefox-esr"
+export BROWSER="firefox"
 export CDPATH=".:$REPOS:$DOT:$GOPATH:$PROJECTS"
 export DOT="$HOME/repos/github/freebootin/dot/"
 export EDITOR=vi
