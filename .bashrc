@@ -88,16 +88,10 @@ export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 #                                    Aliases
 # ------------------------------------------------------------------------------
 alias cdtmp="cd $(mktemp -d)"
-alias disk-destroyer='dd'
 alias dot='cd $DOT'
 alias ?='duck'
-alias ??='wiby'
-alias projects="cd $PROJECTS"
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
-alias snippets='cd $SNIPPETS'
-alias ww='w3m'
-alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
 alias trl="transmission-remote --list"
 
 # ------------------------------------------------------------------------------
