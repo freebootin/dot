@@ -20,13 +20,11 @@ export EDITOR=vi
 export GITUSER=$(whoami)
 export GOPATH="$HOME/go"
 export HISTFILE="$HOME/.cache/bash_history"
-export JOURNAL="$HOME/.local/journal"
 export PROJECTS="$HOME/projects"
 export REPOS="$HOME/repos"
 export SCRIPTS="$HOME/.local/bin/scripts"
-export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
-export VISUAL=vi
+export VISUAL=vim
 
 if [[ -n $(command -v lynx) ]]; then
   export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
