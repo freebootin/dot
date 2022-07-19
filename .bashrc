@@ -16,7 +16,7 @@ esac
 export BROWSER="firefox"
 export CDPATH=".:$REPOS:$DOT:$GOPATH:$PROJECTS"
 export DOT="$HOME/repos/github/freebootin/dot/"
-export EDITOR=vi
+export EDITOR=vim
 export GITUSER=$(whoami)
 export GOPATH="$HOME/go"
 export HISTFILE="$HOME/.cache/bash_history"
