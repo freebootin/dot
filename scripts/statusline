@@ -6,12 +6,25 @@ if [ ! -f ~/.status ]; then
   exit 1
 fi
 
-while [ -n yes ]; do
-  DATE=$(date +"%R %x")
-  CHARGING=$(cat /sys/class/power_supply/BAT0/status)
-  BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
-  LINK_STATUS=$(cat /sys/class/net/enp0s25/operstate)
+# while [ -n yes ]; do
+#   DATE=$(date +"%R %x")
+#   CHARGING=$(cat /sys/class/power_supply/BAT0/status)
+#   BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+#   LINK_STATUS=$(cat /sys/class/net/enp0s25/operstate)
+# 
+#   echo ${DATE} Bat: ${BATTERY}/100 > ~/.status
+#   sleep 1
+# done
 
-  echo ${DATE} Bat: ${BATTERY}/100 > ~/.status
-  sleep 1
+while [ -n yes ]; do
+    DATE=$(date +"%R %x")
+    
+    if [ $(apm -t) = '-1' ]; then
+        BAT_STATUS="Charging"
+    else
+        BAT_STATUS=$(apm -t)
+    fi
+
+    echo "${DATE} Bat: ${BAT_STATUS}" > ~/.status
+    sleep 1
 done
