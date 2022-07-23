@@ -1,4 +1,5 @@
 #!/bin/sh
+# TODO: Incorporate FIFO's
 touch ~/.status
 
 if [ ! -f ~/.status ]; then
@@ -22,7 +23,7 @@ while [ -n yes ]; do
     if [ $(apm -t) = '-1' ]; then
         BAT_STATUS="Charging"
     else
-        BAT_STATUS=$(apm -t)
+        BAT_STATUS="$(apm -l)/100"
     fi
 
     echo "${DATE} Bat: ${BAT_STATUS}" > ~/.status
