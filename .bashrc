@@ -13,20 +13,18 @@ esac
 # ------------------------------------------------------------------------------
 #                              Enviroment Variables
 # ------------------------------------------------------------------------------
-export BROWSER="firefox-esr"
+export BROWSER="firefox"
 export CDPATH=".:$REPOS:$DOT:$GOPATH:$PROJECTS"
 export DOT="$HOME/repos/github/freebootin/dot/"
-export EDITOR=vi
+export EDITOR=vim
 export GITUSER=$(whoami)
 export GOPATH="$HOME/go"
 export HISTFILE="$HOME/.cache/bash_history"
-export JOURNAL="$HOME/.local/journal"
 export PROJECTS="$HOME/projects"
 export REPOS="$HOME/repos"
 export SCRIPTS="$HOME/.local/bin/scripts"
-export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
-export VISUAL=vi
+export VISUAL=vim
 
 if [[ -n $(command -v lynx) ]]; then
   export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
@@ -88,16 +86,10 @@ export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 #                                    Aliases
 # ------------------------------------------------------------------------------
 alias cdtmp="cd $(mktemp -d)"
-alias disk-destroyer='dd'
 alias dot='cd $DOT'
 alias ?='searx'
-alias ??='wiby'
-alias projects="cd $PROJECTS"
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
-alias snippets='cd $SNIPPETS'
-alias ww='w3m'
-alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
 alias trl="transmission-remote --list"
 
 # ------------------------------------------------------------------------------
