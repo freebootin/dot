@@ -23,7 +23,7 @@ while [ -n yes ]; do
     if [ $(apm -t) = '-1' ]; then
         BAT_STATUS="Charging"
     else
-        BAT_STATUS="$(apm -l)/100"
+        BAT_STATUS="$(apm -l)%"
     fi
 
     echo "${DATE} Bat: ${BAT_STATUS}" > ~/.status
