@@ -85,9 +85,9 @@ export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 # ------------------------------------------------------------------------------
 #                                    Aliases
 # ------------------------------------------------------------------------------
-alias ?='duck'
 alias cdtmp="cd $(mktemp -d)"
 alias dot='cd $DOT'
+alias ?='searx'
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias trl="transmission-remote --list"
