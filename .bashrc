@@ -85,9 +85,9 @@ export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 # ------------------------------------------------------------------------------
 #                                    Aliases
 # ------------------------------------------------------------------------------
+alias ?='duck'
 alias cdtmp="cd $(mktemp -d)"
 alias dot='cd $DOT'
-alias ?='duck'
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias trl="transmission-remote --list"
@@ -166,3 +166,9 @@ fi
 owncomp=(greet)
 for i in ${owncomp[@]}; do complete -C $i $i; done
 # same as calling 'complete -C greet greet' for each item.
+
+PATH="/home/freebootin/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/freebootin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/freebootin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/freebootin/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/freebootin/perl5"; export PERL_MM_OPT;
