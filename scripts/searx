@@ -1,0 +1,4 @@
+#!/bin/sh
+QUERY=
+QUERY=$(echo "$*" | sed 's/ /%20/g')
+exec w3m "https://searx.tuxcloud.net/search?q=${QUERY}&categories=general&language=en"
