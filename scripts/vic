@@ -1,2 +1,2 @@
 #!/bin/sh
-exec vi $(command -v "${1}")
+exec vim $(command -v "${1}")

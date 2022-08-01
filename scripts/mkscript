@@ -22,4 +22,4 @@ fi
 
 printf "#!/bin/sh\n" > "${src}"
 chmod +x "${src}"
-exec vi "+normal G$" "${src}"
+exec vim "+normal G$" "${src}"
