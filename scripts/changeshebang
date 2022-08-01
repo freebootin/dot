@@ -1,0 +1,10 @@
+#!/bin/sh
+# Change the shebang line of a script to match the operating system.
+
+OS=$(uname)
+SCRIPT=${1}
+
+echo ${SCRIPT}
+sed '1s|/usr/bin/|/usr/local/bin/|' ${SCRIPT} > csb.tmp
+
+csb.tmp > ${SCRIPT}
