@@ -2,9 +2,23 @@
 # Change the shebang line of a script to match the operating system.
 
 OS=$(uname)
-SCRIPT=${1}
-pwd
-echo ${SCRIPT}
-sed '1s|/usr/bin/|/usr/local/bin/|' ${SCRIPT} > csb.tmp
 
-csb.tmp > ${SCRIPT}
+case $OS in
+    "FreeBSD")
+        echo "FreeBSD"
+        for f in $SCRIPTS/*; do
+            sed -i .bak '1s|/usr/bin/|/usr/local/bin/|' $f
+        done
+        ;;
+    "Linux")
+        echo "Linux"
+        for f in $SCRIPTS/*; do
+            sed -i .bak '1s|/usr/local/bin/|/usr/bin/|' $f
+        done
+        ;;
+    *)
+        echo "Unknown OS...Aborting."
+        exit 1
+        ;;
+esac
+#sed -i .bak '1s|/usr/bin/|/usr/local/bin/|' $f
