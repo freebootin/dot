@@ -92,6 +92,10 @@ alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias trl="transmission-remote --list"
 
+if [ "$(uname)" = 'FreeBSD' ]; then
+    alias less='less -r'
+fi
+
 # ------------------------------------------------------------------------------
 #                               Exported Functions
 # ------------------------------------------------------------------------------
@@ -134,6 +138,21 @@ if [ $(uname) = 'Linux' ]; then
     if test -x /usr/bin/lesspipe; then
         export LESSOPEN="| /usr/bin/lesspipe %s";
         export LESSCLOSE="/usr/bin/lesspipe %s %s";
+    fi
+
+    export LESS_TERMCAP_mb="[35m" # magenta
+    export LESS_TERMCAP_md="[33m" # yellow
+    export LESS_TERMCAP_me="[0m" 
+    export LESS_TERMCAP_se="[0m"
+    export LESS_TERMCAP_so="[36m" # cyan
+    export LESS_TERMCAP_ue="[0m"
+    export LESS_TERMCAP_us="[4m" # underline
+fi
+
+if [ $(uname) = 'FreeBSD' ]; then
+    if [ -x /usr/local/bin/lesspipe.sh ]; then
+        export LESSOPEN="| /usr/local/bin/lesspipe.sh %s";
+        export LESSCLOSE="/usr/local/bin/lesspipe.sh %s %s";
     fi
 
     export LESS_TERMCAP_mb="[35m" # magenta
