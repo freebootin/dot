@@ -26,6 +26,15 @@ export SCRIPTS="$HOME/.local/bin/scripts"
 export TERM=xterm-256color
 export VISUAL=vim
 
+# Perl 5 specific variables. Perl appends these to your bashrc during installation.
+if [[ -n $(command -v perl) ]]; then
+    export PERL5LIB="/home/freebootin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+    export PERL_LOCAL_LIB_ROOT="/home/freebootin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+    export PERL_MB_OPT="--install_base \"/home/freebootin/perl5\""
+    export PERL_MM_OPT="INSTALL_BASE=/home/freebootin/perl5"
+fi
+
+
 if [[ -n $(command -v lynx) ]]; then
   export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
   export LYNX_LSS="$HOME/.config/lynx/lynx.lss"
@@ -63,19 +72,20 @@ pathprepend() {
 
 # last arg will be first in path
 pathprepend \
-	$HOME/.local/bin \
-  $HOME/go/bin \
-  /usr/local/go/bin \
-  $SCRIPTS
+    $HOME/.local/bin \
+    $HOME/go/bin \
+    /home/freebootin/perl5/bin \
+    /usr/local/go/bin \
+    $SCRIPTS
 
 pathappend \
-  /usr/local/bin \
-  /usr/local/sbin \
-  /usr/local/games \
-  /usr/sbin \
-  /usr/bin \
-  /sbin \
-  /bin
+    /usr/local/bin \
+    /usr/local/sbin \
+    /usr/local/games \
+    /usr/sbin \
+    /usr/bin \
+    /sbin \
+    /bin
 
 # ------------------------------------------------------------------------------
 #                                     Prompt
@@ -185,9 +195,3 @@ fi
 owncomp=(greet)
 for i in ${owncomp[@]}; do complete -C $i $i; done
 # same as calling 'complete -C greet greet' for each item.
-
-PATH="/home/freebootin/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/freebootin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/freebootin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/freebootin/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/freebootin/perl5"; export PERL_MM_OPT;
