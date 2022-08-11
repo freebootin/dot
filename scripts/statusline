@@ -1,5 +1,4 @@
 #!/bin/sh
-# TODO: Incorporate FIFO's
 if [ ! -p ~/.status ]; then
     mkfifo ~/.status
 fi
