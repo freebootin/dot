@@ -23,4 +23,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-if [ -e /home/patrick/.nix-profile/etc/profile.d/nix.sh ]; then . /home/patrick/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# If user has nix package manager is installed then source nix.sh.
+# This is temporary until one host is running NixOS.
+if [ -e /home/patrick/.nix-profile/etc/profile.d/nix.sh ]; then 
+    . /home/patrick/.nix-profile/etc/profile.d/nix.sh; 
+fi 
