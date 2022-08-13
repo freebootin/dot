@@ -5,3 +5,4 @@ if [ ! -d "$HOME/.w3m" ]; then
 fi
 
 ln -sf "$PWD/config" "$HOME/.w3m/config"
+ln -sf "$PWD/keymap" "$HOME/.w3m/keymap"

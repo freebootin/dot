@@ -1,0 +1,3 @@
+# Custom keymaps and macros for w3m.
+
+keymap t    COMMAND "TAB_GOTO https://searx.tuxcloud.net/; GOTO_LINE 3; NEXT_LINK; GOTO_LINK"
