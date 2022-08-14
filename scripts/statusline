@@ -3,25 +3,48 @@ if [ ! -p ~/.status ]; then
     mkfifo ~/.status
 fi
 
-# while [ -n yes ]; do
-#   DATE=$(date +"%R %x")
-#   CHARGING=$(cat /sys/class/power_supply/BAT0/status)
-#   BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
-#   LINK_STATUS=$(cat /sys/class/net/enp0s25/operstate)
-# 
-#   echo ${DATE} Bat: ${BATTERY}/100 > ~/.status
-#   sleep 1
-# done
+OS=$(uname)
 
-while [ -n yes ]; do
-    DATE=$(date +"%R %x")
-    
-    if [ $(apm -t) = '-1' ]; then
-        BAT_STATUS="Charging"
-    else
-        BAT_STATUS="$(apm -l)%"
-    fi
 
-    echo "${DATE} Bat: ${BAT_STATUS}" >> ~/.status
-    sleep 1
-done
+__freebsd() {
+    while true; do
+        DATE=$(date +"%R %x")
+        
+        if [ "$(apm -t)" = '-1' ]; then
+            BAT_STATUS="Charging"
+        else
+            BAT_STATUS="$(apm -l)%"
+        fi
+
+        echo "${DATE} Bat: ${BAT_STATUS}" >> ~/.status
+        sleep 1
+    done
+}
+
+__linux() {
+    while true; do
+        DATE=$(date +"%R %x")
+        if [ -d /sys/class/power_supply/BAT0/ ]; then
+            CHARGING=$(cat /sys/class/power_supply/BAT0/status)
+            BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+        else BATTERY="NONE"
+        fi
+        
+        LINK_STATUS=$(cat /sys/class/net/enp0s25/operstate)
+         
+        echo "${DATE} Bat: ${BATTERY}/100" > ~/.status
+        sleep 1
+    done
+}
+
+case ${OS} in
+    Linux)
+        __linux
+        ;;
+    FreeBSD)
+        __freebsd
+        ;;
+    *)
+        echo "Unknown OS"
+        ;;
+esac
