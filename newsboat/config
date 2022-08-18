@@ -6,6 +6,14 @@ bind-key j down
 unbind-key k
 bind-key k up
 
+# bind h to quit/backup
+unbind-key h
+bind-key h quit
+
+# bind l to open
+unbind-key l
+bind-key l open
+
 # test stuff
 browser $BROWSER
 macro o open-in-browser
