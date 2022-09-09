@@ -109,5 +109,6 @@ let @h = "I<h2>\<Esc>A</h2>\<Esc>"
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'sirtaj/vim-openscad'
 
 call plug#end()
