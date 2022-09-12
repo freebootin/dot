@@ -14,9 +14,9 @@ set autoindent "new lines inherit the indentation of previous lines
 set expandtab "convert tabs to spaces
 "set filetype indent on "enable indentation rules that are file-type specific (bricked)
 "set shiftround "when shifting lines, round the indent to nearest multiple of 'shiftwidth'
-set shiftwidth=4 "when shifting, indent using two spaces
+set shiftwidth=8 "when shifting, indent using eight spaces
 set smarttab " insert 'tabstop' number of spaces when the tab key is pressed
-set tabstop=4 "indent using two spaces
+set tabstop=8 "indent using eight spaces
 set smartindent
 
 
