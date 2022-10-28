@@ -1,0 +1,21 @@
+#!/bin/sh
+#PURPOSE: This script sets up a workstatation enviroment on a fresh Ubuntu 22.10 server install.
+#
+#AUTHOR: Patrick Kane
+#
+#CONTACT: patrick at freebootin.com
+
+sudo apt install -y \
+        build-essential \
+        xorg \
+        cwm \
+        w3m \
+        firefox-esr \
+
+mkdir -p ~/repos/suckless/
+cd ~/repos/suckless/
+git clone https://git.suckless.org/st
+cd ~/repos/suckless/st
+sudo make clean install
+
+#TODO add default config files
