@@ -12,10 +12,13 @@ sudo apt install -y \
         w3m \
         firefox \
 
-mkdir -p ~/repos/suckless/
-cd ~/repos/suckless/
-git clone https://git.suckless.org/st
-cd ~/repos/suckless/st
-sudo make clean install
+install_simple_terminal() {
+        mkdir -p ~/repos/suckless/
+        cd ~/repos/suckless/
+        git clone https://git.suckless.org/st
+        cd ~/repos/suckless/st
+        sudo make clean install
+}
+install_simple_terminal
 
 #TODO add default config files
