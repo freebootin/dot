@@ -10,7 +10,7 @@ sudo apt install -y \
         xorg \
         cwm \
         w3m \
-        firefox-esr \
+        firefox \
 
 mkdir -p ~/repos/suckless/
 cd ~/repos/suckless/
