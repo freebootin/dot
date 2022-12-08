@@ -32,3 +32,7 @@ run_config_scripts() {
 create_directories
 make_symbolic_links
 run_config_scripts
+
+if [ $(uname) = 'FreeBSD' ]; then
+        ln -sf "$PWD/.dircolors" "$HOME/.dircolors"
+fi
